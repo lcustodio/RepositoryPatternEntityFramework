@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -39,7 +38,7 @@ namespace Remondo.Database.Repositories.Tests
                 var hotelRepository = new Repository<Hotel>(dataContext);
 
                 IEnumerable<Hotel> hotels = hotelRepository
-                    .SearchFor(h => h.City.Name == Amsterdam);
+                    .FindAll(h => h.City.Name == Amsterdam);
 
                 foreach (Hotel hotel in hotels)
                 {
